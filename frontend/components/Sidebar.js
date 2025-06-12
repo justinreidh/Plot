@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from "react";
 import { Home, Settings, Menu } from "lucide-react";
 
@@ -10,16 +12,17 @@ export function Sidebar() {
 
     return (
         
-        <div className={`p-2 flex flex-col align-center h-screen border-r-1 duration-300 ease-in-out ${expanded ? "w-64 bg-gray-50" : "w-13"} overflow-hidden relative`}>
-            <button onClick={toggleSidebar} className="p-2 w-9 cursor-pointer rounded hover:bg-gray-100 mb-4 self-start">
-                <Menu size={20} />
-            </button>
+            <div className={`sticky top-0 p-2 flex flex-col align-center h-screen border-r duration-300 ease-in-out ${expanded ? "w-64 min-w-64 bg-gray-50" : "w-13 min-w-13"} overflow-hidden`}>
+                <button onClick={toggleSidebar} className="p-2 w-9 cursor-pointer rounded hover:bg-gray-100 mb-4 self-start">
+                    <Menu size={20} />
+                </button>
 
-            <nav className="flex flex-col gap-y-2">   
-                <SidebarItem icon={<Home size={20}/>} label="Home" expanded={expanded} />
-                <SidebarItem icon={<Settings size={20}/>} label="Settings" expanded={expanded} />
-            </nav>
-        </div>
+                <nav className="flex flex-col gap-y-2">   
+                    <SidebarItem icon={<Home size={20}/>} label="Home" expanded={expanded} />
+                    <SidebarItem icon={<Settings size={20}/>} label="Settings" expanded={expanded} />
+                </nav>
+            </div>
+        
     );
 }
 
