@@ -9,13 +9,8 @@ export function StoryForm({formData,setFormData}) {
         setFormData(prev => ({ ...prev, [name]: value }));
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        console.log(formData);
-    };
-
     return (
-        <form onSubmit={handleSubmit} className="max-w-6xl">
+        <form className="max-w-6xl">
             <FormTable items={FORM_FIELDS} formData={formData} onChange={handleChange} />
         </form>
     );

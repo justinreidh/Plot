@@ -7,42 +7,36 @@ import { SortableSceneCard } from './SortableSceneCard';
 
 const TOTAL_ROWS = 4;
 
-export function SceneGrid() {
-    const [scenes, setScenes] = useState(
-        Array(TOTAL_ROWS).fill(null).map(() => [
-        { id: crypto.randomUUID(), type: 'Scene', text: '', visuals: '', symbols: '' }
-        ])
-    );
-
+export function SceneGrid({scenes, setScenes}) {
     const sensors = useSensors(
         useSensor(PointerSensor, { activationConstraint: { distance: 5 } })
     );
 
     const handleTextChange = (rowIdx, cardIdx, value) => {
         const updated = [...scenes];
-        updated[rowIdx][cardIdx].text = value;
+        updated[rowIdx].scenes[cardIdx].text = value;
         setScenes(updated);
     };
 
     const handleTypeChange = (rowIdx, cardIdx, newType) => {
         const updated = [...scenes];
-        updated[rowIdx][cardIdx].type = newType;
+        updated[rowIdx].scenes[cardIdx].type = newType;
         setScenes(updated);
     };
     const handleVisualChange = (rowIdx, cardIdx, value) => {
         const updated = [...scenes];
-        updated[rowIdx][cardIdx].visuals = value;
+        updated[rowIdx].scenes[cardIdx].visuals = value;
         setScenes(updated);
     };
     const handleSymbolChange = (rowIdx, cardIdx, value) => {
         const updated = [...scenes];
-        updated[rowIdx][cardIdx].symbols = value;
+        updated[rowIdx].scenes[cardIdx].symbols = value;
         setScenes(updated);
     };
 
     const handleAddScene = (rowIdx) => {
         const updated = [...scenes];
-        updated[rowIdx].push({ id: crypto.randomUUID(), type: 'None', text: '' });
+        updated[rowIdx].scenes.push({ id: crypto.randomUUID(), type: 'None', text: '', visuals: '', symbols: '' });
         setScenes(updated);
     };
 
@@ -80,11 +74,11 @@ export function SceneGrid() {
                         onDragEnd={(event) => handleDragEnd(event, rowIndex)}
                     >
                         <SortableContext
-                            items={row.map((scene) => scene.id)}
+                            items={row.scenes.map((scene) => scene.id)}
                             strategy={horizontalListSortingStrategy}
                         >
                             <div className="flex gap-2 min-w-max">
-                            {row.map((scene, cardIndex) => (
+                            {row.scenes.map((scene, cardIndex) => (
                                 <SortableSceneCard
                                     key={scene.id}
                                     id={scene.id}

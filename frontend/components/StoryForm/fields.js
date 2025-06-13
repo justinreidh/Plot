@@ -13,16 +13,26 @@ export const FORM_FIELDS = [
   { label: 'Moral Need', name: 'moralNeed' },
   { label: 'Problem', name: 'problem' },
   { label: 'Desire', name: 'desire' },
-  { label: 'Opponent', name: 'opponent' },
+  { label: 'Opponent', name: 'opponent1' },
   { label: 'Plan', name: 'plan' },
   { label: 'Battle', name: 'battle' },
   { label: 'Psychological & Moral Revelation', name: 'revelation' },
   { label: 'New Equilibrium', name: 'newEquilibrium' },
   { label: 'Values', name: 'values' },
-  { label: 'Variation on Moral Problem', name: 'moralProblemVariation' }
+  { label: 'Variation on Moral Problem', name: 'variationOnProblem1' }
 ];
 
 export const CHARACTER_FIELDS = [
+  { label: 'Hero', name: 'hero' },
+  { label: 'Hero Psychological & Moral Weakness', name: 'heroWeakness' },
+  { label: 'Psychological Need', name: 'psychNeed' },
+  { label: 'Moral Need', name: 'moralNeed' },
+  { label: 'Problem', name: 'problem' },
+  { label: 'Desire', name: 'desire' },
+  { label: 'Plan', name: 'plan' },
+  { label: 'Values', name: 'values' },
+  { label: 'Variation on Moral Problem', name: 'variationOnProblem1' },
+
   { label: 'Opponent 1', name: 'opponent1' },
   { label: 'Weakness', name: 'opponent1Weakness' },
   { label: 'Psych Need', name: 'opponent1PsychNeed' },
@@ -32,7 +42,7 @@ export const CHARACTER_FIELDS = [
   { label: 'Plan', name: 'opponent1Plan' },
   { label: 'Values', name: 'opponent1Values' },
   { label: 'Power', name: 'opponent1Power' },
-  { label: 'Variation on problem', name: 'opponent1VariationOnProblem' },
+  { label: 'Variation on problem', name: 'variationOnProblem2' },
 
   { label: 'Opponent 2', name: 'opponent2' },
   { label: 'Weakness', name: 'opponent2Weakness' },
@@ -43,7 +53,7 @@ export const CHARACTER_FIELDS = [
   { label: 'Plan', name: 'opponent2Plan' },
   { label: 'Values', name: 'opponent2Values' },
   { label: 'Power', name: 'opponent2Power' },
-  { label: 'Variation on problem', name: 'opponent2VariationOnProblem' },
+  { label: 'Variation on problem', name: 'variationOnProblem3' },
 
   { label: 'Opponent 3', name: 'opponent3' },
   { label: 'Weakness', name: 'opponent3Weakness' },
@@ -54,7 +64,7 @@ export const CHARACTER_FIELDS = [
   { label: 'Plan', name: 'opponent3Plan' },
   { label: 'Values', name: 'opponent3Values' },
   { label: 'Power', name: 'opponent3Power' },
-  { label: 'Variation on problem', name: 'opponent3VariationOnProblem' },
+  { label: 'Variation on problem', name: 'variationOnProblem4' },
 
   { label: 'Changed beliefs in hero', name: 'changedBeliefsInHero' },
   { label: 'Opponents attacking hero’s weakness', name: 'opponentsAttackHeroWeakness' },
@@ -196,7 +206,7 @@ export const PLOT_FIELDS = [
   { label: 'Psych revelation', name: 'psychRevelation' },
   { label: 'Moral Revelation', name: 'moralRevelation' },
 
-  { label: '21. Moral Decision', name: 'moralDecision' },
+  { label: '21. Moral Decision', name: 'moralChoice' },
 
   { label: '22. New Equilibrium (freedom or greater enslavement)', name: 'newEquilibrium' },
 ]
