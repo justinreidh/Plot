@@ -3,7 +3,7 @@ export const FORM_FIELDS = [
   { label: 'Designing Principle', name: 'designingPrinciple' },
   { label: 'Hero', name: 'hero' },
   { label: 'Conflict', name: 'conflict' },
-  { label: 'Change', name: 'change' },
+  { label: 'Weakness - Action - Change', name: 'change' },
   { label: 'Weakness', name: 'weakness' },
   { label: 'Action', name: 'action' },
   { label: 'Moral Choice', name: 'moralChoice' },
@@ -132,7 +132,7 @@ export const PLOT_FIELDS = [
   { label: 'Symbol line', name: 'symbolLine' },
 
   { label: '1. Self rev, need, desire', name: 'selfRevNeedDesire' },
-  { label: 'Psych and moral revelation', name: 'psychMoralRevelation' },
+  { label: 'Psych and moral revelation', name: 'revelation' },
   { label: 'Need', name: 'need1' },
   { label: 'Moral need', name: 'moralNeed1' },
   { label: 'Desire', name: 'desire1' },

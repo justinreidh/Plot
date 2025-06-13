@@ -3,11 +3,7 @@ import { useState } from 'react'
 import { FORM_FIELDS } from './fields'
 import { FormTable } from './FormTable'
 
-export function StoryForm() {
-    const [formData, setFormData] = useState(
-        Object.fromEntries(FORM_FIELDS.map(field => [field.name, '']))
-    );
-
+export function StoryForm({formData,setFormData}) {
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prev => ({ ...prev, [name]: value }));

@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { useState } from 'react';
 import { useAuth } from '../../../context/AuthContext';
 import { useParams, useSearchParams, useRouter } from 'next/navigation';
 import { StoryForm } from '@/components/StoryForm/StoryForm'
@@ -18,6 +19,8 @@ export default function Document() {
 
     const docID = params.id;
     const page = searchParams.get('page') || 'story';
+
+    const [formData, setFormData] = useState({});
 
     if (loading) return <p className='p-4'>Loading...</p>;
 
@@ -39,12 +42,12 @@ export default function Document() {
             
 
             <main className='p-4'>
-                {page === 'story' && <div><h2 className='text-xl font-semibold mb-4'>Story Content</h2><StoryForm /></div>}
-                {page === 'characters' && <div><h2 className='text-xl font-semibold mb-4'>Characters</h2><CharacterForm /></div>}
-                {page === 'theme' && <div><h2 className='text-xl font-semibold mb-4'>Theme</h2><ThemeForm /></div>}
-                {page === 'visuals' && <div><h2 className='text-xl font-semibold mb-4'>Visuals</h2><VisualForm /></div>}
-                {page === 'symbols' && <div><h2 className='text-xl font-semibold mb-4'>Symbols</h2><SymbolForm /></div>}
-                {page === 'plot' && <div><h2 className='text-xl font-semibold mb-4'>Plot</h2><PlotForm /></div>}
+                {page === 'story' && <div><h2 className='text-xl font-semibold mb-4'>Story Content</h2><StoryForm formData={formData} setFormData={setFormData} /></div>}
+                {page === 'characters' && <div><h2 className='text-xl font-semibold mb-4'>Characters</h2><CharacterForm formData={formData} setFormData={setFormData} /></div>}
+                {page === 'theme' && <div><h2 className='text-xl font-semibold mb-4'>Theme</h2><ThemeForm formData={formData} setFormData={setFormData} /></div>}
+                {page === 'visuals' && <div><h2 className='text-xl font-semibold mb-4'>Visuals</h2><VisualForm formData={formData} setFormData={setFormData} /></div>}
+                {page === 'symbols' && <div><h2 className='text-xl font-semibold mb-4'>Symbols</h2><SymbolForm formData={formData} setFormData={setFormData} /></div>}
+                {page === 'plot' && <div><h2 className='text-xl font-semibold mb-4'>Plot</h2><PlotForm formData={formData} setFormData={setFormData} /></div>}
                 {page === 'board' && <div><h2 className='text-xl font-semibold mb-4'>Beat Board</h2><SceneGrid /></div>}
 
 
