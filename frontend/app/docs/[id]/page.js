@@ -15,6 +15,7 @@ import { SymbolForm } from '@/components/StoryForm/SymbolForm';
 import { ThemeForm } from '@/components/StoryForm/ThemeForm';
 import { PlotForm } from '@/components/StoryForm/PlotForm';
 import { initialFormData, emptyDefaultScenes } from '@/lib/defaultFields'
+import { Preahvihear } from 'next/font/google'
 
 export default function Document() {
     const {user,loading} = useAuth();
@@ -26,6 +27,7 @@ export default function Document() {
 
     const [formData, setFormData] = useState(initialFormData);
     const [scenes, setScenes] = useState(emptyDefaultScenes)
+    const [title, setTitle] = useState('Untitled Project')
     const [saving, setSaving] = useState(false);
 
     useEffect(() => {
@@ -35,6 +37,7 @@ export default function Document() {
         if (snap.exists()) {
             setFormData(snap.data().formData || initialFormData);
             setScenes(snap.data().scenes || emptyDefaultScenes)
+            setTitle(snap.data().title || "Untitled Project")
         }
         };
         if (user && docID) load();
@@ -49,6 +52,7 @@ export default function Document() {
                 updatedAt: new Date().toISOString(),
                 formData,
                 scenes,
+                title,
             }, { merge: true });
             console.log("Saved!");
         } catch (err) {
@@ -62,8 +66,11 @@ export default function Document() {
 
     return (
         <div className='w-full'>
-            <div className='flex flex-row items-center h-14 px-4 border-b-1 bg-white border-gray-200 sticky top-0 z-100'>
-                <div>Project ID: {docID}</div>
+            <div className='flex flex-row items-center h-14 px-4 border-b-1 bg-white border-gray-200 sticky top-0 z-100'>  
+                <input className='py-1 border-b focus:outline-none font-semibold text-xl' value={title} 
+                    onChange={(e) => setTitle(e.target.value)}
+                    ></input>
+            
 
                 <nav className="flex space-x-2 ml-4">
                     <TabButton select="story" label="Story" docID={docID} page={page} />
@@ -88,8 +95,6 @@ export default function Document() {
                 {page === 'symbols' && <div><h2 className='text-xl font-semibold mb-4'>Symbols</h2><SymbolForm formData={formData} setFormData={setFormData} /></div>}
                 {page === 'plot' && <div><h2 className='text-xl font-semibold mb-4'>Plot</h2><PlotForm formData={formData} setFormData={setFormData} /></div>}
                 {page === 'board' && <div><h2 className='text-xl font-semibold mb-4'>Beat Board</h2><SceneGrid scenes={scenes} setScenes={setScenes} /></div>}
-
-
             </main>
             <div className='h-50'></div>
         </div>
@@ -98,11 +103,9 @@ export default function Document() {
 
 function TabButton({select, label, docID, page}) {
     const router = useRouter();
-
     const goToPage = (select) => {
         router.push(`/docs/${docID}?page=${select}`);
     };
-
     return (
         <button onClick={() => goToPage(select)} className={`p-2 rounded hover:bg-gray-100 cursor-pointer ${page === select ? 'bg-gray-100' : ''}`}>
             {label}

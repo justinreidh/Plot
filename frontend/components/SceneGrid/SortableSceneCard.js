@@ -39,14 +39,14 @@ export function SortableSceneCard({ id, scene, onTextChange, onTypeChange, onVis
             />
 
             <textarea
-                value={scene.visual}
+                value={scene.visuals}
                 onChange={(e) => onVisualChange(e.target.value)}
                 rows={2}
                 placeholder='Visuals'
                 className="text-xs p-1 resize-none rounded focus:outline-none border-t"
             />
             <textarea
-                value={scene.visual}
+                value={scene.symbols}
                 onChange={(e) => onSymbolChange(e.target.value)}
                 rows={2}
                 placeholder='Symbols'

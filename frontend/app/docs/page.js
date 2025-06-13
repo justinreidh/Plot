@@ -36,7 +36,7 @@ function DocCards() {
             try {
                 const q = query(
                     collection(db, 'projects'),
-                    where('userId', '==', user.uid)
+                    where('userID', '==', user.uid)
                 );
                 const querySnapshot = await getDocs(q);
                 const docs = querySnapshot.docs.map(doc => ({

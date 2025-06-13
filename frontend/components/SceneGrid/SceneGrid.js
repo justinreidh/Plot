@@ -44,12 +44,12 @@ export function SceneGrid({scenes, setScenes}) {
         const { active, over } = event;
         if (!over || active.id === over.id) return;
 
-        const oldIndex = scenes[rowIndex].findIndex(scene => scene.id === active.id);
-        const newIndex = scenes[rowIndex].findIndex(scene => scene.id === over.id);
-        const updatedRow = arrayMove(scenes[rowIndex], oldIndex, newIndex);
+        const oldIndex = scenes[rowIndex].scenes.findIndex(scene => scene.id === active.id);
+        const newIndex = scenes[rowIndex].scenes.findIndex(scene => scene.id === over.id);
+        const updatedRow = arrayMove(scenes[rowIndex].scenes, oldIndex, newIndex);
 
         const updated = [...scenes];
-        updated[rowIndex] = updatedRow;
+        updated[rowIndex] = {...scenes[rowIndex], scenes: updatedRow};
         setScenes(updated);
     };
 
