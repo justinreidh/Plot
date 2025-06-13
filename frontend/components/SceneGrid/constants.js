@@ -1,0 +1,27 @@
+export const ACT_LABELS = ['Act 1', 'Act 2A', 'Act 2B', 'Act 3'];
+
+export const SCENE_TYPES = [
+  'Scene',
+  'Self-Revelation, Need, Desire',
+  'Ghost and Story World',
+  'Weakness and Need',
+  'Inciting Incedent',
+  'Desire',
+  'Ally',
+  'Opponent and/or Mystery',
+  'Fake-ally Opponent',
+  'First Revelation, Changed Desire, Motive, Decision',
+  'Plan',
+  'Opponent Plan and Counter-Attack',
+  'Drive',
+  'Attacks by Ally',
+  'Apparent Defeat',
+  '2nd Revelation, Changed Desire, Motive, Decision',
+  'Audience Revelation',
+  '3rd Revelation, Changed Desire, Motive, Decision',
+  'Gate, Gauntlet, Visit to Death',
+  'Battle',
+  'Self Revelation',
+  'Moral Decision',
+  'New Equilibrium',
+];

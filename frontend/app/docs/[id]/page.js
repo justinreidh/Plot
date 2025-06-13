@@ -3,8 +3,13 @@
 import Link from 'next/link'
 import { useAuth } from '../../../context/AuthContext';
 import { useParams, useSearchParams, useRouter } from 'next/navigation';
-import { StoryForm } from '@/components/StoryForm'
-import { SceneGrid } from '@/components/SceneGrid'
+import { StoryForm } from '@/components/StoryForm/StoryForm'
+import { SceneGrid } from '@/components/SceneGrid/SceneGrid'
+import { CharacterForm } from '@/components/StoryForm/CharacterForm';
+import { VisualForm } from '@/components/StoryForm/VisualForm'
+import { SymbolForm } from '@/components/StoryForm/SymbolForm';
+import { ThemeForm } from '@/components/StoryForm/ThemeForm';
+import { PlotForm } from '@/components/StoryForm/PlotForm';
 
 export default function Document() {
     const {user,loading} = useAuth();
@@ -35,12 +40,12 @@ export default function Document() {
 
             <main className='p-4'>
                 {page === 'story' && <div><h2 className='text-xl font-semibold mb-4'>Story Content</h2><StoryForm /></div>}
-                {page === 'characters' && <div><h2>Characters</h2><p>List and edit characters here.</p></div>}
-                {page === 'theme' && <div><h2>Theme</h2><p>Theme breakdowns go here.</p></div>}
-                {page === 'visuals' && <div><h2>Visuals</h2><p>Visuals breakdowns go here.</p></div>}
-                {page === 'symbols' && <div><h2>Symbols</h2><p>Symbols breakdowns go here.</p></div>}
-                {page === 'plot' && <div><h2>Plot</h2><p>Plot breakdowns go here.</p></div>}
-                {page === 'board' && <div><h2>Beat Board</h2><SceneGrid /></div>}
+                {page === 'characters' && <div><h2 className='text-xl font-semibold mb-4'>Characters</h2><CharacterForm /></div>}
+                {page === 'theme' && <div><h2 className='text-xl font-semibold mb-4'>Theme</h2><ThemeForm /></div>}
+                {page === 'visuals' && <div><h2 className='text-xl font-semibold mb-4'>Visuals</h2><VisualForm /></div>}
+                {page === 'symbols' && <div><h2 className='text-xl font-semibold mb-4'>Symbols</h2><SymbolForm /></div>}
+                {page === 'plot' && <div><h2 className='text-xl font-semibold mb-4'>Plot</h2><PlotForm /></div>}
+                {page === 'board' && <div><h2 className='text-xl font-semibold mb-4'>Beat Board</h2><SceneGrid /></div>}
 
 
             </main>

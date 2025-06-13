@@ -25,24 +25,23 @@ export default function Auth() {
     const logout = async () => {
         await signOut(auth);
     };
-    
 
-  return (
-    <div>
-        <NavBar />
-        <div className="p-6">
-            {user ? (
-                <div>
-                    <h1>Welcome, {user.displayName}</h1>
-                    <button onClick={logout}>Sign Out</button>
-                </div>
-            ) : (
-                <div>
-                    <h1>Sign In</h1>
-                    <button onClick={signInWithGoogle}>Sign in with Google</button>
-                </div>
-            )}
+    return (
+        <div>
+            <NavBar />
+            <div className="p-6">
+                {user ? (
+                    <div>
+                        <h1>Welcome, {user.displayName}</h1>
+                        <button onClick={logout}>Sign Out</button>
+                    </div>
+                ) : (
+                    <div>
+                        <h1>Sign In</h1>
+                        <button onClick={signInWithGoogle}>Sign in with Google</button>
+                    </div>
+                )}
+            </div>
         </div>
-    </div>
-  );
+    );
 }

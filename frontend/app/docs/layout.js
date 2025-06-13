@@ -3,11 +3,11 @@ import { Sidebar } from '@/components/Sidebar'
 
 export default function DocsLayout({ children }) {
   return (
-    <ProtectedRoute >
+    //<ProtectedRoute >
         <div className='flex flew-row'>
             <Sidebar />
             {children}
         </div>
-    </ProtectedRoute>
+    //</ProtectedRoute>
   );
 }
