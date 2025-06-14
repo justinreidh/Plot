@@ -1,9 +1,7 @@
 'use client'
-
 import { useEffect } from 'react'
 import { doc, setDoc, getDoc } from 'firebase/firestore'
 import { db } from "@/lib/firebase"
-import Link from 'next/link'
 import { useState } from 'react';
 import { useAuth } from '../../../context/AuthContext';
 import { useParams, useSearchParams, useRouter } from 'next/navigation';
@@ -15,7 +13,7 @@ import { SymbolForm } from '@/components/StoryForm/SymbolForm';
 import { ThemeForm } from '@/components/StoryForm/ThemeForm';
 import { PlotForm } from '@/components/StoryForm/PlotForm';
 import { initialFormData, emptyDefaultScenes } from '@/lib/defaultFields'
-import { Preahvihear } from 'next/font/google'
+import { ChevronDown, ChevronUp } from 'lucide-react'
 
 export default function Document() {
     const {user,loading} = useAuth();
@@ -29,6 +27,8 @@ export default function Document() {
     const [scenes, setScenes] = useState(emptyDefaultScenes)
     const [title, setTitle] = useState('Untitled Project')
     const [saving, setSaving] = useState(false);
+    const [showNav, setShowNav] = useState(true);
+
 
     useEffect(() => {
     const load = async () => {
@@ -41,7 +41,7 @@ export default function Document() {
         }
         };
         if (user && docID) load();
-  }, [user, docID]);
+    }, [user, docID]);
 
     const saveData = async () => {
         if (!user || !docID) return;
@@ -66,35 +66,42 @@ export default function Document() {
 
     return (
         <div className='w-full'>
-            <div className='flex flex-row items-center h-14 px-4 border-b-1 bg-white border-gray-200 sticky top-0 z-100'>  
-                <input className='py-1 border-b focus:outline-none font-semibold text-xl' value={title} 
-                    onChange={(e) => setTitle(e.target.value)}
-                    ></input>
+            {showNav && (
+                <div className='flex flex-row justify-between items-center h-14 px-4 border-b-1 bg-white border-gray-200 sticky top-0 z-100'>  
+                    <div className='flex flex-row'>
+                        <input className='py-1 focus:outline-none font-semibold text-xl' value={title} onChange={(e) => setTitle(e.target.value)}></input>
+                    
+                        <nav className="flex space-x-2 ml-4">
+                            <TabButton select="story" label="Story" docID={docID} page={page} />
+                            <TabButton select="characters" label="Characters" docID={docID} page={page} />
+                            <TabButton select="theme" label="Theme" docID={docID} page={page}/>
+                            <TabButton select="visuals" label="Visuals" docID={docID} page={page} />
+                            <TabButton select="symbols" label="Symbols" docID={docID} page={page} />
+                            <TabButton select="plot" label="Plot" docID={docID} page={page} />
+                            <TabButton select="board" label="Beat Board" docID={docID} page={page} />
+                        </nav>
+                    </div>
+                    <button onClick={saveData} className="px-4 mr-10 py-2 cursor-pointer border hover:bg-gray-100 rounded">
+                        {saving ? "Saving..." : "Save"}
+                    </button>
+                </div>
+            )}
             
-
-                <nav className="flex space-x-2 ml-4">
-                    <TabButton select="story" label="Story" docID={docID} page={page} />
-                    <TabButton select="characters" label="Characters" docID={docID} page={page} />
-                    <TabButton select="theme" label="Theme" docID={docID} page={page}/>
-                    <TabButton select="visuals" label="Visuals" docID={docID} page={page} />
-                    <TabButton select="symbols" label="Symbols" docID={docID} page={page} />
-                    <TabButton select="plot" label="Plot" docID={docID} page={page} />
-                    <TabButton select="board" label="Beat Board" docID={docID} page={page} />
-                </nav>
-                <button onClick={saveData} className="px-4 py-2 cursor-pointer hover:bg-gray-100 rounded">
-                    {saving ? "Saving..." : "Save"}
-                </button>
-            </div>
-            
+            <button
+                onClick={() => setShowNav(prev => !prev)}
+                className="absolute right-4 top-0 bg-white border px-1 hover:bg-gray-100 z-200"
+            >
+                {showNav ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
+            </button>
 
             <main className='p-4'>
-                {page === 'story' && <div><h2 className='text-xl font-semibold mb-4'>Story Content</h2><StoryForm formData={formData} setFormData={setFormData} /></div>}
-                {page === 'characters' && <div><h2 className='text-xl font-semibold mb-4'>Characters</h2><CharacterForm formData={formData} setFormData={setFormData} /></div>}
-                {page === 'theme' && <div><h2 className='text-xl font-semibold mb-4'>Theme</h2><ThemeForm formData={formData} setFormData={setFormData} /></div>}
-                {page === 'visuals' && <div><h2 className='text-xl font-semibold mb-4'>Visuals</h2><VisualForm formData={formData} setFormData={setFormData} /></div>}
-                {page === 'symbols' && <div><h2 className='text-xl font-semibold mb-4'>Symbols</h2><SymbolForm formData={formData} setFormData={setFormData} /></div>}
-                {page === 'plot' && <div><h2 className='text-xl font-semibold mb-4'>Plot</h2><PlotForm formData={formData} setFormData={setFormData} /></div>}
-                {page === 'board' && <div><h2 className='text-xl font-semibold mb-4'>Beat Board</h2><SceneGrid scenes={scenes} setScenes={setScenes} /></div>}
+                {page === 'story' && <div><StoryForm formData={formData} setFormData={setFormData} /></div>}
+                {page === 'characters' && <div><CharacterForm formData={formData} setFormData={setFormData} /></div>}
+                {page === 'theme' && <div><ThemeForm formData={formData} setFormData={setFormData} /></div>}
+                {page === 'visuals' && <div><VisualForm formData={formData} setFormData={setFormData} /></div>}
+                {page === 'symbols' && <div><SymbolForm formData={formData} setFormData={setFormData} /></div>}
+                {page === 'plot' && <div><PlotForm formData={formData} setFormData={setFormData} /></div>}
+                {page === 'board' && <div><SceneGrid scenes={scenes} setScenes={setScenes} /></div>}
             </main>
             <div className='h-50'></div>
         </div>
@@ -107,7 +114,7 @@ function TabButton({select, label, docID, page}) {
         router.push(`/docs/${docID}?page=${select}`);
     };
     return (
-        <button onClick={() => goToPage(select)} className={`p-2 rounded hover:bg-gray-100 cursor-pointer ${page === select ? 'bg-gray-100' : ''}`}>
+        <button onClick={() => goToPage(select)} className={`p-2 rounded hover:bg-gray-100 cursor-pointer ${page === select ? 'font-semibold border' : ''}`}>
             {label}
         </button>
     );

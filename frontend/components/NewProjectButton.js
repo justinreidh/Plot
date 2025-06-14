@@ -25,9 +25,9 @@ export function NewProjectButton({user}) {
     return (
         <button
             onClick={handleCreate}
-            className="mt-4 px-4 py-2 hover:bg-gray-200 transition"
+            className="mt-4 px-4 py-2 border rounded hover:bg-gray-100 cursor-pointer"
         >
-            + Create New Project
+            + New Project
         </button>
     );
 }

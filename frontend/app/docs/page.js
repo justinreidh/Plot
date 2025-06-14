@@ -21,7 +21,6 @@ export default function Docs() {
                     <DocCards />
                 </div>
             </div>
-        
     );
 }
 
@@ -62,11 +61,11 @@ function DocCards() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
         {documents.map((doc) => (
             <Link href={`/docs/${doc.id}`} key={doc.id}>
-            <div className="p-4 bg-white shadow-md rounded-lg hover:shadow-lg transition-shadow cursor-pointer">
-                <h3 className="text-lg font-semibold">{doc.title}</h3>
-                <p className="text-sm text-gray-500">Last edited: {doc.updatedAt}</p>
-                <p className="text-blue-500 text-sm mt-2 underline">Open Project</p>
-            </div>
+                <div className="p-4 bg-white border focus:bg-gray-100 cursor-pointer rounded">
+                    <h3 className="text-lg font-semibold">{doc.title}</h3>
+                    <p className="text-sm text-gray-500">Last edited: {new Date(doc.updatedAt).toLocaleDateString()}</p>
+                    <p className="text-blue-500 text-sm mt-2 underline">Open Project</p>
+                </div>
             </Link>
         ))}
         </div>

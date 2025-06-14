@@ -3,7 +3,7 @@ export function FormTable({ items, formData, onChange }) {
         <table className="w-full">
         <tbody>
             {items.map(({ label, name }) => (
-                <tr key={name} className="border-t border-b border-r align-top">
+                <tr key={name} className="border-b border-r align-top">
                     <td className="w-40 pt-2 pr-2 border-r font-medium align-top">
                         <label htmlFor={name} className="underline">{label}</label>
                     </td>

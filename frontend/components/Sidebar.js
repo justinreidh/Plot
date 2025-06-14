@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Home, Settings, Menu } from "lucide-react";
+import Link from "next/link";
 
 export function Sidebar() {
     const [expanded, setExpanded] = useState(false);
@@ -18,21 +19,21 @@ export function Sidebar() {
                 </button>
 
                 <nav className="flex flex-col gap-y-2">   
-                    <SidebarItem icon={<Home size={20}/>} label="Home" expanded={expanded} />
-                    <SidebarItem icon={<Settings size={20}/>} label="Settings" expanded={expanded} />
+                    <SidebarItem url='/docs' icon={<Home size={20}/>} label="Home" expanded={expanded} />
+                    <SidebarItem url='/docs' icon={<Settings size={20}/>} label="Settings" expanded={expanded} />
                 </nav>
             </div>
         
     );
 }
 
-function SidebarItem({ icon, label, expanded }) {
+function SidebarItem({ url, icon, label, expanded }) {
     return (
-        <div className={`flex items-center rounded p-2 hover:bg-gray-100 cursor-pointer ${expanded ? "w-60" : "w-9"}`}>
+        <Link href={url} className={`flex items-center rounded p-2 hover:bg-gray-100 cursor-pointer ${expanded ? "w-60" : "w-9"}`}>
             <div className="mr-3">{icon}</div>
             <span className={`transition-opacity duration-200 ${expanded ? "opacity-100" : "opacity-0"}`}>
                 {label}
             </span>
-        </div>
+        </Link>
     );
 }

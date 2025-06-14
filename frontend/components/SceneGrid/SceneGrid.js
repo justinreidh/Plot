@@ -59,15 +59,10 @@ export function SceneGrid({scenes, setScenes}) {
             <div key={rowIndex} className="w-full">
                 <div className="flex items-center justify-between mb-2">
                     <h3 className="text-xl font-semibold">{ACT_LABELS[rowIndex]}</h3>
-                    <button
-                        onClick={() => handleAddScene(rowIndex)}
-                        className="text-sm px-2 py-1 rounded hover:bg-gray-100 cursor-pointer"
-                        >
-                        + Scene
-                    </button>
+                    
                 </div>
 
-                <div className="w-full p-2 overflow-x-auto border-x-2 border-gray-200 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+                <div className="relative w-full overflow-x-auto border-r-2 border-gray-200 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
                     <DndContext
                         sensors={sensors}
                         collisionDetection={closestCenter}
@@ -92,6 +87,12 @@ export function SceneGrid({scenes, setScenes}) {
                             </div>
                         </SortableContext>
                     </DndContext>
+                    <button
+                        onClick={() => handleAddScene(rowIndex)}
+                        className="text-sm px-2 py-1 border rounded hover:bg-gray-100 cursor-pointer absolute top-0 right-1"
+                        >
+                        +
+                    </button>
                 </div>
             </div>
         ))}

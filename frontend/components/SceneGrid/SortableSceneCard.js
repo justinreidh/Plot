@@ -15,7 +15,7 @@ export function SortableSceneCard({ id, scene, onTextChange, onTypeChange, onVis
         <div
             ref={setNodeRef}
             style={style}
-            className="w-40 border-1 border-gray-200 rounded bg-white flex flex-col cursor-grab"
+            className="w-40 border-1 border-gray-200 rounded bg-white flex flex-col"
         >
             <div className="flex flex-row">
                 <select
@@ -27,7 +27,7 @@ export function SortableSceneCard({ id, scene, onTextChange, onTypeChange, onVis
                     <option key={type} value={type}>{type}</option>
                 ))}
                 </select>
-                <div {...attributes} {...listeners} className="px-1 h-4"><GripHorizontal size={16} /></div>
+                <div {...attributes} {...listeners} className="px-1 h-4 cursor-grab"><GripHorizontal size={16} /></div>
             </div>
 
             <textarea
