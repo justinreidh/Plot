@@ -10,7 +10,7 @@ export function ThemeForm({formData,setFormData}) {
     };
 
     return (
-        <form className="max-w-6xl">
+        <form >
             <FormTable items={THEME_FIELDS} formData={formData} onChange={handleChange} />
         </form>
     );

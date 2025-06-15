@@ -16,9 +16,8 @@ export function NavBar() {
             </div>
 
             <div className="flex gap-4 items-center">
-                <Link href='/auth' className="p-2 text-lg hover:bg-gray-100 rounded">
-                    {user ? 'Logout' : 'Sign In' }
-                </Link>
+                {user ? (<Link href='/docs' className="p-2 text-lg hover:bg-gray-100 rounded">Go to Docs</Link>) : (<Link href='/auth' className="p-2 text-lg hover:bg-gray-100 rounded">Sign In</Link>) }
+                
             </div>
         </nav>
     )

@@ -10,7 +10,7 @@ export function VisualForm({formData,setFormData}) {
     };
 
     return (
-        <form className="max-w-6xl">
+        <form >
             <FormTable items={VISUAL_FIELDS} formData={formData} onChange={handleChange} />
         </form>
     );

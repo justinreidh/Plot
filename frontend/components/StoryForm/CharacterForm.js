@@ -10,7 +10,7 @@ export function CharacterForm({formData,setFormData}) {
     };
 
     return (
-        <form className="max-w-6xl">
+        <form >
             <FormTable items={CHARACTER_FIELDS} formData={formData} onChange={handleChange} />
         </form>
     );

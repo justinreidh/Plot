@@ -10,7 +10,7 @@ export function PlotForm({formData,setFormData}) {
     };
 
     return (
-        <form className="max-w-6xl">
+        <form>
             <FormTable items={PLOT_FIELDS} formData={formData} onChange={handleChange} />
         </form>
     );

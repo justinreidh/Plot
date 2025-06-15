@@ -10,7 +10,7 @@ export function StoryForm({formData,setFormData}) {
     };
 
     return (
-        <form className="max-w-6xl">
+        <form >
             <FormTable items={FORM_FIELDS} formData={formData} onChange={handleChange} />
         </form>
     );

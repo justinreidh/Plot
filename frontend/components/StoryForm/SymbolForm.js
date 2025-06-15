@@ -10,7 +10,7 @@ export function SymbolForm({formData,setFormData}) {
     };
 
     return (
-        <form className="max-w-6xl">
+        <form >
             <FormTable items={SYMBOL_FIELDS} formData={formData} onChange={handleChange} />
         </form>
     );

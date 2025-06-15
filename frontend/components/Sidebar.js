@@ -12,18 +12,15 @@ export function Sidebar() {
     };
 
     return (
-        
             <div className={`sticky top-0 p-2 flex flex-col align-center h-screen border-r duration-300 ease-in-out ${expanded ? "w-64 min-w-64 bg-gray-50" : "w-13 min-w-13"} overflow-hidden`}>
                 <button onClick={toggleSidebar} className="p-2 w-9 cursor-pointer rounded hover:bg-gray-100 mb-4 self-start">
                     <Menu size={20} />
                 </button>
 
                 <nav className="flex flex-col gap-y-2">   
-                    <SidebarItem url='/docs' icon={<Home size={20}/>} label="Home" expanded={expanded} />
-                    <SidebarItem url='/docs' icon={<Settings size={20}/>} label="Settings" expanded={expanded} />
+                    <SidebarItem url='/docs' icon={<Home size={20}/>} label="Docs" expanded={expanded} />
                 </nav>
             </div>
-        
     );
 }
 
