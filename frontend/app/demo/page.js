@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { useParams, useSearchParams, useRouter } from 'next/navigation';
 import { StoryForm } from '@/components/StoryForm/StoryForm'
 import { SceneGrid } from '@/components/SceneGrid/SceneGrid'
+import { Demo } from '@/components/Demo/Demo'
 import { CharacterForm } from '@/components/StoryForm/CharacterForm';
 import { VisualForm } from '@/components/StoryForm/VisualForm'
 import { SymbolForm } from '@/components/StoryForm/SymbolForm';
@@ -46,7 +47,7 @@ export default function Document() {
             {showNav && (
                 <div className='flex flex-row justify-between items-center h-14 px-4 border-b-1 bg-white border-gray-200 sticky top-0 z-100'>  
                     <div className='flex flex-row'>
-                        <input className='py-1 focus:outline-none font-semibold text-xl' value={title} onChange={(e) => setTitle(e.target.value)}></input>
+                        <div className='py-1 focus:outline-none font-semibold text-xl text-gray-400'>Sample - Inception</div>
                     
                         <nav className="flex space-x-2 ml-4">
                             <TabButton select="story" label="Story" docID={"proj1"} page={page} />
@@ -78,7 +79,9 @@ export default function Document() {
                 {page === 'visuals' && <div><GetStarted /></div>}
                 {page === 'symbols' && <div><GetStarted /></div>}
                 {page === 'plot' && <div><GetStarted /></div>}
-                {page === 'board' && <div><SceneGrid scenes={scenes} setScenes={setScenes} /></div>}
+                {page === 'board' && <div><Demo scenes={scenes} setScenes={setScenes} />
+                    <GetStarted />
+                </div>}
             </main>
             <div className='h-50'></div>
         </div>
@@ -112,10 +115,16 @@ function DemoTabButton({select, label, docID, page}) {
 
 function GetStarted() {
     return (
-        <div className='p-10 flex justify-center'>
+        <div className='p-10 flex flex-col justify-center items-center'>
             <div className='max-w-2xl text-2xl p-4 border rounded text-center '>
                 Sign up to save your projects, get full access to the guided forms, and unlock the full power of <span className='font-semibold'>Plot.</span>
             </div>
+            <Link
+                href={'/auth'}
+                className="flex justify-center items-center py-3 m-6 h-20 w-40 border-gray-300 border rounded-xl hover:bg-gray-100 cursor-pointer mb-6 md:mb-0"
+            >
+                Get Started
+            </Link>
         </div>
     )
 }
