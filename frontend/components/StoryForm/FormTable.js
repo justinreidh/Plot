@@ -13,9 +13,13 @@ export function FormTable({ items, formData, onChange }) {
                                 id={name}
                                 name={name}
                                 rows={1}
-                                className="p-2 text-sm w-full min-h-8 h-8 resize-y focus:outline-none"
+                                className="p-2 text-sm w-full min-h-9 h-9 resize-none focus:outline-none"
                                 value={formData[name]}
                                 onChange={onChange}
+                                onInput={(e) => {
+                                    e.target.style.height = "auto";
+                                    e.target.style.height = `${e.target.scrollHeight}px`; 
+                                }}
                             />
                         </td>
                     </tr>
