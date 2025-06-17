@@ -66,10 +66,10 @@ export default function Document() {
     if (loading) return <p className='p-4'>Loading...</p>;
 
     return (
-        <div className='w-full'>
+        <div className='w-full relative'>
             <button
                 onClick={() => setShowNav(prev => !prev)}
-                className="absolute left-0 top-0 bg-white border px-1 hover:bg-gray-100 z-200"
+                className="fixed left-0 top-0 bg-white border px-1 hover:bg-gray-100 z-200"
             >
                 {showNav ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
             </button>

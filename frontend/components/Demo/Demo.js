@@ -60,35 +60,37 @@ export function Demo({scenes, setScenes}) {
                     <h3 className="text-xl font-semibold">{ACT_LABELS[rowIndex]}</h3>
                     
                 </div>
-
-                <div className="relative w-full overflow-x-auto border-r-2 border-gray-200 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
-                    <DndContext
-                        sensors={sensors}
-                        collisionDetection={closestCenter}
-                        onDragEnd={(event) => handleDragEnd(event, rowIndex)}
-                    >
-                        <SortableContext
-                            items={row.scenes.map((scene) => scene.id)}
-                            strategy={horizontalListSortingStrategy}
+                <div className='flex flex-row'>
+                    <div className="relative w-full overflow-x-auto border-r-2 border-gray-200 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+                        <DndContext
+                            sensors={sensors}
+                            collisionDetection={closestCenter}
+                            onDragEnd={(event) => handleDragEnd(event, rowIndex)}
                         >
-                            <div className="flex gap-2 min-w-max">
-                            {row.scenes.map((scene, cardIndex) => (
-                                <SortableSceneCard
-                                    key={scene.id}
-                                    id={scene.id}
-                                    scene={scene}
-                                    onTextChange={(val) => handleTextChange(rowIndex, cardIndex, val)}
-                                    onTypeChange={(val) => handleTypeChange(rowIndex, cardIndex, val)}
-                                    onVisualChange={(val) => handleVisualChange(rowIndex, cardIndex, val)}
-                                    onSymbolChange={(val) => handleSymbolChange(rowIndex, cardIndex, val)}
-                                />
-                            ))}
-                            </div>
-                        </SortableContext>
-                    </DndContext>
+                            <SortableContext
+                                items={row.scenes.map((scene) => scene.id)}
+                                strategy={horizontalListSortingStrategy}
+                            >
+                                <div className="flex gap-2 min-w-max">
+                                {row.scenes.map((scene, cardIndex) => (
+                                    <SortableSceneCard
+                                        key={scene.id}
+                                        id={scene.id}
+                                        scene={scene}
+                                        onTextChange={(val) => handleTextChange(rowIndex, cardIndex, val)}
+                                        onTypeChange={(val) => handleTypeChange(rowIndex, cardIndex, val)}
+                                        onVisualChange={(val) => handleVisualChange(rowIndex, cardIndex, val)}
+                                        onSymbolChange={(val) => handleSymbolChange(rowIndex, cardIndex, val)}
+                                    />
+                                ))}
+                                </div>
+                            </SortableContext>
+                        </DndContext>
+                    </div>
+                
                     <button
                         onClick={() => handleAddScene(rowIndex)}
-                        className="text-sm px-2 py-1 border rounded hover:bg-gray-100 cursor-pointer absolute top-0 right-1"
+                        className="text-sm px-2 py-1 border rounded hover:bg-gray-100 cursor-pointer "
                         >
                         +
                     </button>
