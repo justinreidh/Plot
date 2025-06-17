@@ -41,19 +41,19 @@ export default function Home() {
 
                     
                     <div className='flex border my-4 p-4 rounded shadow-2xl shadow-gray-200'>
-                        <div className="relative flex-1 m-2 aspect-square border rounded group cursor-pointer">
-                            <Image 
-                                src="/2.svg"
-                                alt="Screenshot of the story overview form"
-                                fill
-                                className="object-contain p-4 rounded "
-                            />
-                            <div className="absolute inset-0 rounded bg-black bg-opacity-40 opacity-0 group-hover:opacity-80 flex items-center justify-center transition duration-300 flex-col">
-                                <div className="text-white text-4xl font-semibold mb-6">Story Forms.</div>
-                                <div className="text-white text-xl font-semibold border rounded p-2">Try Demo</div>
-                            </div>
-                        </div>
-                        <div className="relative flex-1 m-2 aspect-square border rounded group cursor-pointer">
+                        <Link href={'/demo'} className="relative flex-1 m-2 aspect-square border rounded group cursor-pointer">
+                                <Image 
+                                    src="/2.svg"
+                                    alt="Screenshot of the story overview form"
+                                    fill
+                                    className="object-contain p-4 rounded "
+                                />
+                                <div className="absolute inset-0 rounded bg-black bg-opacity-40 opacity-0 group-hover:opacity-80 flex items-center justify-center transition duration-300 flex-col">
+                                    <div className="text-white text-4xl font-semibold mb-6">Story Forms.</div>
+                                    <div className="text-white text-xl font-semibold border rounded p-2">Try Demo</div>
+                                </div>
+                        </Link>
+                        <Link href={'/demo?page=board'} className="relative flex-1 m-2 aspect-square border rounded group cursor-pointer">
                             <Image 
                                 src="/1.svg"
                                 alt="Screenshot of the beat board"
@@ -64,7 +64,7 @@ export default function Home() {
                                 <div className="text-white text-4xl font-semibold mb-6">Beat Board.</div>
                                 <div className="text-white text-xl font-semibold border rounded p-2">Try Demo</div>
                             </div>
-                    </div>
+                        </Link>
                     </div>
                 </div>
           </main>

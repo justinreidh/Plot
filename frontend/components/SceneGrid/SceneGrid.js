@@ -54,42 +54,44 @@ export function SceneGrid({scenes, setScenes}) {
     };
 
     return (
-        <div className="max-w-[calc(100vw-82px)] space-y-4">
+        <div className="mx-4 space-y-4">
         {scenes.map((row, rowIndex) => (
             <div key={rowIndex} className="w-full">
                 <div className="flex items-center justify-between mb-2">
                     <h3 className="text-xl font-semibold">{ACT_LABELS[rowIndex]}</h3>
                     
                 </div>
-
-                <div className="relative w-full overflow-x-auto border-r-2 border-gray-200 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
-                    <DndContext
-                        sensors={sensors}
-                        collisionDetection={closestCenter}
-                        onDragEnd={(event) => handleDragEnd(event, rowIndex)}
-                    >
-                        <SortableContext
-                            items={row.scenes.map((scene) => scene.id)}
-                            strategy={horizontalListSortingStrategy}
+                <div className='flex flex-row'>
+                    <div className="relative w-full overflow-x-auto border-r-2 border-gray-200 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+                        <DndContext
+                            sensors={sensors}
+                            collisionDetection={closestCenter}
+                            onDragEnd={(event) => handleDragEnd(event, rowIndex)}
                         >
-                            <div className="flex gap-2 min-w-max">
-                            {row.scenes.map((scene, cardIndex) => (
-                                <SortableSceneCard
-                                    key={scene.id}
-                                    id={scene.id}
-                                    scene={scene}
-                                    onTextChange={(val) => handleTextChange(rowIndex, cardIndex, val)}
-                                    onTypeChange={(val) => handleTypeChange(rowIndex, cardIndex, val)}
-                                    onVisualChange={(val) => handleVisualChange(rowIndex, cardIndex, val)}
-                                    onSymbolChange={(val) => handleSymbolChange(rowIndex, cardIndex, val)}
-                                />
-                            ))}
-                            </div>
-                        </SortableContext>
-                    </DndContext>
+                            <SortableContext
+                                items={row.scenes.map((scene) => scene.id)}
+                                strategy={horizontalListSortingStrategy}
+                            >
+                                <div className="flex gap-2 min-w-max">
+                                {row.scenes.map((scene, cardIndex) => (
+                                    <SortableSceneCard
+                                        key={scene.id}
+                                        id={scene.id}
+                                        scene={scene}
+                                        onTextChange={(val) => handleTextChange(rowIndex, cardIndex, val)}
+                                        onTypeChange={(val) => handleTypeChange(rowIndex, cardIndex, val)}
+                                        onVisualChange={(val) => handleVisualChange(rowIndex, cardIndex, val)}
+                                        onSymbolChange={(val) => handleSymbolChange(rowIndex, cardIndex, val)}
+                                    />
+                                ))}
+                                </div>
+                            </SortableContext>
+                        </DndContext>
+                    </div>
+                
                     <button
                         onClick={() => handleAddScene(rowIndex)}
-                        className="text-sm px-2 py-1 border rounded hover:bg-gray-100 cursor-pointer absolute top-0 right-1"
+                        className="text-sm px-2 py-1 border rounded hover:bg-gray-100 cursor-pointer "
                         >
                         +
                     </button>
