@@ -5,6 +5,7 @@ import { useEffect, useState } from 'react';
 import { GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from 'firebase/auth'
 import { auth } from "../../lib/firebase"
 import { NavBar } from '@/components/Navbar';
+import Image from 'next/image';
 
 export default function Auth() {
     const [user, setUser] = useState(null);
@@ -29,16 +30,18 @@ export default function Auth() {
     return (
         <div>
             <NavBar />
-            <div className="p-6">
+            <div className="flex justify-center items-center h-[calc(100vh-60px)]">
                 {user ? (
-                    <div>
-                        <h1>Welcome, {user.displayName}</h1>
-                        <button onClick={logout}>Sign Out</button>
+                    <div className='flex flex-col items-center justify-center border rounded pb-20 w-100 h-100'>
+                        <h1 className='m-6 border-gray-300 border rounded p-2 text-4xl'>Welcome, {user.displayName}</h1>
+                        <button onClick={logout} className="border border-black px-4 py-2 rounded shadow-lg hover:shadow-sm cursor-pointer">Sign Out</button>
                     </div>
                 ) : (
-                    <div>
-                        <h1>Sign In</h1>
-                        <button onClick={signInWithGoogle}>Sign in with Google</button>
+                    <div className='flex flex-col items-center justify-center border rounded pb-20 w-100 h-100'>
+                        <h1 className='m-6 border-gray-300 border rounded p-2 text-4xl'>Log in to <span className='font-semibold'>Plot.</span></h1>
+                        <button onClick={signInWithGoogle} className='cursor-pointer shadow-lg hover:shadow-sm'>
+                            <Image src={'/sign.png'} width={200} height={100} alt='Google Icon'></Image>
+                        </button>
                     </div>
                 )}
             </div>
