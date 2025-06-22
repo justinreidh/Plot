@@ -9,19 +9,17 @@ export async function POST(req) {
     const formData = await req.formData()
     const userId = formData.get('userId')
 
-    // Create Checkout Sessions from body params.
     const session = await stripe.checkout.sessions.create({
       line_items: [
         {
-          // Provide the exact Price ID (for example, price_1234) of the product you want to sell
           price: 'price_1RbpQhRS2RI7JWFvn1FUlXMl',
           quantity: 1,
         },
       ],
       mode: 'subscription',
       metadata: {userId},
-      success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
-      cancel_url: `${origin}/?canceled=true`,
+      success_url: `${origin}/success`,
+      cancel_url: `${origin}/canceled`,
     });
     return NextResponse.redirect(session.url, 303)
   } catch (err) {
