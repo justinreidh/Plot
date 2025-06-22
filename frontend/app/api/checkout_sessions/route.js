@@ -2,10 +2,12 @@ import { NextResponse } from 'next/server'
 import { headers } from 'next/headers'
 import { stripe } from '../../../lib/stripe'
 
-export async function POST() {
+export async function POST(req) {
   try {
     const headersList = await headers()
     const origin = headersList.get('origin')
+    const formData = await req.formData()
+    const userId = formData.get('userId')
 
     // Create Checkout Sessions from body params.
     const session = await stripe.checkout.sessions.create({
@@ -17,6 +19,7 @@ export async function POST() {
         },
       ],
       mode: 'subscription',
+      metadata: {userId},
       success_url: `${origin}/success?session_id={CHECKOUT_SESSION_ID}`,
       cancel_url: `${origin}/?canceled=true`,
     });
