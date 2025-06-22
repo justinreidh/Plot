@@ -1,30 +1,18 @@
-'use client'
+export default async function IndexPage({ searchParams }) {
+  const { canceled } = await searchParams
 
-import { auth } from '../../lib/firebase'
-import { onAuthStateChanged } from 'firebase/auth'
-
-export default function IndexPage() {
-  const handleCheckout = async () => {
-    const user = auth.currentUser
-    if (!user) return alert('Please log in first.')
-
-    const res = await fetch('/api/checkout_sessions', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ userId: user.uid }),
-    })
-
-    if (res.redirected) {
-      window.location.href = res.url
-    } else {
-      const { error } = await res.json()
-      alert(error)
-    }
+  if (canceled) {
+    console.log(
+      'Order canceled -- continue to shop around and checkout when you’re ready.'
+    )
   }
-
   return (
-    <section>
-      <button onClick={handleCheckout}>Checkout</button>
-    </section>
+    <form action="/api/checkout_sessions" method="POST">
+      <section>
+        <button type="submit" role="link">
+          Checkout
+        </button>
+      </section>
+    </form>
   )
 }
