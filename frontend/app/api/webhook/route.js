@@ -1,5 +1,4 @@
 import { NextResponse } from 'next/server'
-import { buffer } from 'micro'
 import { stripe } from '../../../lib/stripe'
 import { adminDB } from '../../../lib/firebase-admin' 
 import Stripe from 'stripe'
@@ -31,7 +30,8 @@ export async function POST(req) {
     const userId = session.metadata?.userId
     const customerId = session.customer
     const subscriptionId = session.subscription
-
+    console.log("Got the userid:", userId)
+    console.log("and the customer and sub ids:", customerId, subscriptionId)
     try {
       await adminDB.collection('users').doc(userId).set(
         {
