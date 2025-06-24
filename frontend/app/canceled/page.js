@@ -11,7 +11,7 @@ export default function cancel() {
                     <h1 className='m-6 text-4xl'>
                         You have canceled your purchase of a subscription to
                         <span className="font-semibold"> Plot. </span> 
-                        If this was a mistake, you can <Link className="font-semibold text-blue-500" href={'/checkout'}>return to checkout.</Link> Otherwise, you are welcome to <Link className="font-semibold text-blue-500" href={'/demo'}>continue using our demo!</Link>
+                        If this was a mistake, you can <Link className="font-semibold text-blue-500" href={'/subscription'}>return to checkout.</Link> Otherwise, you are welcome to <Link className="font-semibold text-blue-500" href={'/demo'}>continue using our demo!</Link>
                     </h1>
                 </div>
             </div>

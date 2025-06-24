@@ -34,10 +34,10 @@ export default function Checkout() {
     
     return (
         <form ref={formRef} action="/api/checkout_sessions" method="POST">
-        <input type="hidden" name="userId" />
-        <button type="submit" onClick={handleSubmit}>
-            Checkout
-        </button>
+            <input type="hidden" name="userId" />
+            <button type="submit" onClick={handleSubmit}>
+                Checkout
+            </button>
         </form>
     )
 }

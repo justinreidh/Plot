@@ -12,10 +12,9 @@ export function ProtectedRoute({ children }) {
         if (!loading && !user) {
             router.push("/auth");
         }
-        if (subscription !== 'active') {
-            router.push('checkout')
+        if (!loading && subscription !== 'active') {
+            router.push('/subscription')
         }
-        console.log("subscription is:", subscription)
     }, [user, subscription, loading]);
 
     if (loading || !user || subscription !== 'active') return <p>Loading...</p>;

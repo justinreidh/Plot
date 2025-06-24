@@ -5,8 +5,8 @@ import { useAuth } from '../../context/AuthContext';
 import { useEffect, useState } from 'react';
 import { collection, query, where, getDocs } from 'firebase/firestore';
 import { db } from '../../lib/firebase';
-import { initialFormData, emptyDefaultScenes } from '@/lib/defaultFields';
 import { NewProjectButton } from '@/components/NewProjectButton';
+import { NavBar } from '@/components/Navbar';
 
 export default function Docs() {
     const {user,loading} = useAuth();
@@ -14,13 +14,16 @@ export default function Docs() {
     if (loading) return <p>Loading...</p>;
 
     return (
-            <div className='flex flex-row'>
+        <div>
+            <NavBar />
+            <div>
                 <div className="p-4">
                     <div>Welcome to your documents page, {user?.displayName || 'Guest User'}.</div>
                     <NewProjectButton user={user} />
                     <DocCards />
                 </div>
             </div>
+        </div>
     );
 }
 
