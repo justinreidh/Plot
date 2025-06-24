@@ -19,7 +19,7 @@ export function NavBar() {
                 {(user && subscription == 'active') && 
                     (<Link href='/docs' className="p-2 text-lg hover:bg-gray-100 rounded">Go to Docs</Link>) 
                 }
-                {user && (<Link href='/profile' className="p-2 text-lg hover:bg-gray-100 rounded">Profile</Link>)}
+                {user && (<Link href='/auth' className="p-2 text-lg hover:bg-gray-100 rounded">Profile</Link>)}
             </div>
         </nav>
     )

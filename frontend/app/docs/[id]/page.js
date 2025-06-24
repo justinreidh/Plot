@@ -88,11 +88,11 @@ export default function Document() {
                             <TabButton select="board" label="Beat Board" docID={docID} page={page} />
                         </nav>
                     </div>
-                    <div>
-                    <button onClick={saveData} className="px-4 py-2 mr-2 cursor-pointer border hover:bg-gray-100 rounded">
-                        {saving ? "Saving..." : "Save"}
-                    </button>
-                    <Link href={'/docs'} className="px-4 py-2 cursor-pointer border hover:bg-gray-100 rounded">Docs</Link>
+                    <div className='flex flex-row'>
+                        <button onClick={saveData} className="px-4 py-2 mx-2 cursor-pointer border hover:bg-gray-100 rounded">
+                            {saving ? "Saving..." : "Save"}
+                        </button>
+                        <Link href={'/docs'} className="px-4 py-2 cursor-pointer border hover:bg-gray-100 rounded">Docs</Link>
                     </div>
                 </div>
             )}
@@ -119,7 +119,7 @@ function TabButton({select, label, docID, page}) {
         router.push(`/docs/${docID}?page=${select}`);
     };
     return (
-        <button onClick={() => goToPage(select)} className={`p-2 rounded hover:bg-gray-100 cursor-pointer ${page === select ? 'font-semibold border' : ''}`}>
+        <button onClick={() => goToPage(select)} className={`p-2 rounded hover:bg-gray-100 cursor-pointer whitespace-nowrap ${page === select ? 'font-semibold border' : ''}`}>
             {label}
         </button>
     );

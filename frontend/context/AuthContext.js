@@ -11,6 +11,7 @@ export function AuthProvider({ children }) {
     const [user, setUser] = useState(null);
     const [subscription, setSubscription] = useState(null)
     const [loading, setLoading] = useState(true); 
+    const [subscriptionRenewal, setSubscriptionRenewal] = useState(null)
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
@@ -21,6 +22,7 @@ export function AuthProvider({ children }) {
             const subDoc = await getDoc(doc(db, "users", firebaseUser.uid))
             if (subDoc.exists()) {
                 setSubscription(subDoc.data().subscriptionStatus || null)
+                setSubscriptionRenewal(subDoc.data().subscriptionRenewal || null)
             } else {
                 setSubscription(null)
             }
@@ -39,7 +41,7 @@ export function AuthProvider({ children }) {
     }, []);
 
     return (
-        <AuthContext.Provider value={{ user, subscription, loading }}>
+        <AuthContext.Provider value={{ user, subscription, loading, subscriptionRenewal }}>
             {children}
         </AuthContext.Provider>
     );

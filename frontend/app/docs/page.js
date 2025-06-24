@@ -18,7 +18,7 @@ export default function Docs() {
             <NavBar />
             <div>
                 <div className="p-4">
-                    <div>Welcome to your documents page, {user?.displayName || 'Guest User'}.</div>
+                    <div>Let's get writing, {user?.displayName || 'Guest User'}.</div>
                     <NewProjectButton user={user} />
                     <DocCards />
                 </div>
@@ -28,13 +28,13 @@ export default function Docs() {
 }
 
 function DocCards() {
-    const { user } = useAuth();
+    const { user, subscription } = useAuth();
     const [documents, setDocuments] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const fetchDocuments = async () => {
-            if (!user) return;
+            if (!user || subscription !== 'active') return;
             try {
                 const q = query(
                     collection(db, 'projects'),
@@ -58,7 +58,7 @@ function DocCards() {
 
     if (loading) return <p>Loading your projects...</p>;
 
-    if (!documents.length) return <p>You don’t have any projects yet.</p>;
+    if (!documents.length) return <p className='mt-6'>You don't have any projects yet.</p>;
 
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
