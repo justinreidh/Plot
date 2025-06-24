@@ -32,12 +32,13 @@ export async function POST(req) {
         const subscriptionId = session.subscription
         try {
             const subscription = await stripe.subscriptions.retrieve(subscriptionId)
+            console.log("Subscription info geted:", subscription)
             await adminDB.collection('users').doc(userId).set(
                 {
                 stripeCustomerId: customerId,
                 stripeSubscriptionId: subscriptionId,
                 subscriptionStatus: subscription.status,
-                subscriptionRenewal: subscription.created * 1000
+                subscriptionRenewal: subscription.start_date * 1000
                 },
                 { merge: true }
             )

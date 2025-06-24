@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { useAuth } from "../../context/AuthContext";
 import { useEffect, useRef } from "react";
 import { NavBar } from "@/components/Navbar";
+import { SubscriptionInfo } from "@/components/SubscriptionInfo";
 
 export default function Checkout() {
     const formRef = useRef(null)
@@ -31,7 +32,7 @@ export default function Checkout() {
 
         formRef.current.submit()
     }
-    
+
     return (
         
         <div>
@@ -45,12 +46,7 @@ export default function Checkout() {
                         </button>
                     </form>
                 ) : (
-                    <div className='flex flex-col text-2xl items-center justify-center border rounded text-center w-100 h-100'>
-                        <h1>Subscription status: {subscription}</h1>
-                        <h1>Subscription started on: {new Date(subscriptionRenewal).toLocaleDateString()}</h1>
-                        <h1>Billed Anually</h1><br/>
-                        <h1 className="text-gray-500">Need to cancel? Click here.</h1>
-                    </div>
+                    <SubscriptionInfo/>
                 )}
                 
                 

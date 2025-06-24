@@ -8,6 +8,7 @@ import { doc, getDoc } from 'firebase/firestore'
 import { auth, db } from '../../lib/firebase'
 import { NavBar } from '@/components/Navbar'
 import Image from 'next/image'
+import { SubscriptionInfo } from '@/components/SubscriptionInfo'
 
 export default function Auth() {
     const [user, setUser] = useState(null)
@@ -57,8 +58,9 @@ export default function Auth() {
                         <button onClick={logout} className="border border-black px-4 py-2 rounded shadow-lg hover:shadow-sm cursor-pointer">Sign Out</button>
                         {subscription !== 'active' && (<div className='p-6 text-center'>You don't have an active subscription. <Link href={'/subscription'} className='font-semibold text-blue-500'>Start one </Link>to unlock the full power of Plot.</div>)}
                         <div className='mt-6 text-gray-400'>
-                            Need help? Contact support at plotsupport@gmail.com<br/><br/>
-                            {subscription == 'active' && (<div>Need to manage your subscription? Click <Link href={'/subscription'} className="text-blue-500">this link.</Link></div>)}
+                            {subscription == 'active' && (<SubscriptionInfo/>)}
+                            Need help? Contact support<br/><br/>
+                            
                         </div>
                     </div>
                 ) : (
