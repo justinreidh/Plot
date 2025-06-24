@@ -33,7 +33,7 @@ export default function Auth() {
             <div className="flex justify-center items-center h-[calc(100vh-60px)]">
                 {user ? (
                     <div className='flex flex-col items-center justify-center border rounded pb-20 w-100 h-100'>
-                        <h1 className='m-6 border-gray-300 border rounded p-2 text-4xl'>Welcome, {user.displayName}</h1>
+                        <h1 className='m-6 border-gray-300 border rounded p-2 text-4xl'>Welcome,<br/>{user.displayName}</h1>
                         <button onClick={logout} className="border border-black px-4 py-2 rounded shadow-lg hover:shadow-sm cursor-pointer">Sign Out</button>
                     </div>
                 ) : (

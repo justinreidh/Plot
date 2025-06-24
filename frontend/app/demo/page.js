@@ -1,18 +1,12 @@
 'use client'
 import { useEffect } from 'react'
 import Link from 'next/link'
-import { doc, setDoc, getDoc } from 'firebase/firestore'
+import { doc, getDoc } from 'firebase/firestore'
 import { db } from "@/lib/firebase"
 import { useState } from 'react';
-import { useParams, useSearchParams, useRouter } from 'next/navigation';
+import { useSearchParams, useRouter } from 'next/navigation';
 import { StoryForm } from '@/components/StoryForm/StoryForm'
-import { SceneGrid } from '@/components/SceneGrid/SceneGrid'
 import { Demo } from '@/components/Demo/Demo'
-import { CharacterForm } from '@/components/StoryForm/CharacterForm';
-import { VisualForm } from '@/components/StoryForm/VisualForm'
-import { SymbolForm } from '@/components/StoryForm/SymbolForm';
-import { ThemeForm } from '@/components/StoryForm/ThemeForm';
-import { PlotForm } from '@/components/StoryForm/PlotForm';
 import { initialFormData, emptyDefaultScenes } from '@/lib/defaultFields'
 import { ChevronDown, ChevronUp } from 'lucide-react'
 
