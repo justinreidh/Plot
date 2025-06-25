@@ -43,8 +43,8 @@ export default function Checkout() {
                         <h1 className="mb-4">One simple plan, made for a writer's budget:</h1>
                         <h1 className="text-4xl mb-4">$2.5/month, billed anually.</h1>
                         <h1 className="text-sm">Includes ALL features: Unlimited Projects, Story Forms, and Beat Boards</h1>
-                        <h1 className="text-sm text-gray-600">+ continual feature updates!</h1>
-                        <h1 className="mb-4 text-sm text-gray-600">Cancel Anytime</h1>
+                        <h1 className="text-xs text-gray-600">+ continual feature updates</h1>
+                        <h1 className="mb-4 text-xs text-gray-600">Cancel Anytime</h1>
                         <form ref={formRef} action="/api/checkout_sessions" method="POST">
                             <input type="hidden" name="userId" />
                             <button type="submit" onClick={handleSubmit} className='p-2 border-gray-200 border rounded cursor-pointer hover:bg-gray-100'>
