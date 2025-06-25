@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server'
 import { stripe } from '../../../lib/stripe'
 import { adminDB } from '../../../lib/firebase-admin' 
-import Stripe from 'stripe'
 
 export const config = {
     api: {
@@ -46,6 +45,54 @@ export async function POST(req) {
             console.log(`Firestore updated for user ${userId}`)
         } catch (error) {
             console.error('Failed to write to Firestore:', error)
+        }
+    }
+
+    if (event.type === 'customer.subscription.deleted') {
+        const subscription = event.data.object
+        const customerId = subscription.customer
+
+        const usersRef = adminDB.collection('users')
+        const matchingUsers = await usersRef.where('stripeCustomerId', '==', customerId).get()
+
+        if (!matchingUsers.empty) {
+            const userDoc = matchingUsers.docs[0]
+
+            await userDoc.ref.update({
+            subscriptionStatus: 'canceled',
+            subscriptionRenewal: null, 
+            })
+
+            console.log(`Subscription canceled for user: ${userDoc.id}`)
+        } else {
+            console.warn(`No user found with customerId: ${customerId}`)
+        }
+    }
+
+    if (event.type === 'customer.subscription.updated') {
+        const subscription = event.data.object
+        const customerId = subscription.customer
+
+        const usersRef = adminDB.collection('users')
+        const matchingUsers = await usersRef.where('stripeCustomerId', '==', customerId).get()
+
+        if (!matchingUsers.empty) {
+            const userDoc = matchingUsers.docs[0]
+
+            const isCancelled = subscription.cancel_at_period_end === true
+            const renewal = subscription.current_period_end
+            ? subscription.current_period_end * 1000
+            : null
+
+            await userDoc.ref.update({
+            subscriptionStatus: subscription.status,
+            cancelAtPeriodEnd: isCancelled,
+            subscriptionRenewal: renewal,
+            })
+
+            console.log(`Updated subscription status for ${userDoc.id}: ${subscription.status}`)
+        } else {
+            console.warn(`No user found with customerId: ${customerId}`)
         }
     }
 
