@@ -26,28 +26,28 @@ export const FORM_FIELDS = [
   },
   {
     label: 'Weakness',
-    name: 'weakness',
-    tooltip: 'The hero’s flaw or limitation—either psychological, moral, or both—that they must overcome.'
+    name: 'heroWweakness',
+    tooltip: 'The hero’s inner flaw (psychological) and failing in how they treat others (moral), which must be overcome.'
   },
   {
-    label: 'Action',
+    label: 'Basic Action',
     name: 'action',
-    tooltip: 'What the hero does in response to the problem or desire; it reflects their character and drives the plot.'
+    tooltip: 'What the hero does in response to their basic desire; the basic action drives the plot.'
   },
   {
     label: 'Moral Choice',
     name: 'moralChoice',
-    tooltip: 'The key decision the hero makes that shows their internal moral growth.'
+    tooltip: 'The pivotal decision the hero must make that reveals their ethical growth or failure.'
   },
   {
     label: 'Central Moral Problem',
     name: 'centralMoralProblem',
-    tooltip: 'The ethical issue at the heart of the story; the value system being tested.'
+    tooltip: 'The central ethical dilemma the story explores—often rooted in how the hero treats others.'
   },
   {
     label: 'Hero Psychological & Moral Weakness',
     name: 'heroWeakness',
-    tooltip: 'A combined view of the hero’s inner flaws: the psychological issues that make them incomplete and the moral failings that hurt others.'
+    tooltip: 'The hero’s inner flaw (psychological) and failing in how they treat others (moral), which must be overcome.'
   },
   {
     label: 'Psychological Need',
@@ -57,7 +57,7 @@ export const FORM_FIELDS = [
   {
     label: 'Moral Need',
     name: 'moralNeed',
-    tooltip: 'What the hero must learn ethically, often involving how they treat others.'
+    tooltip: 'The ethical shortcoming in how the hero treats others, requiring change for true growth.'
   },
   {
     label: 'Problem',
@@ -72,12 +72,12 @@ export const FORM_FIELDS = [
   {
     label: 'Opponent',
     name: 'opponent1',
-    tooltip: 'The character who stands in the way of the hero’s desire and often represents the opposite values.'
+    tooltip: 'The primary character who stands in the way of the hero’s desire and often represents the opposite values.'
   },
   {
     label: 'Plan',
     name: 'plan',
-    tooltip: 'The strategy the hero uses to overcome the opponent and achieve their desire.'
+    tooltip: 'The strategy the hero develops to overcome the opponent and achieve their desire, which usually evolves with the story.'
   },
   {
     label: 'Battle',
@@ -87,22 +87,22 @@ export const FORM_FIELDS = [
   {
     label: 'Psychological & Moral Revelation',
     name: 'revelation',
-    tooltip: 'What the hero learns about themselves and the world—especially about their weakness and the story’s deeper truths.'
+    tooltip: 'The hero’s realization of both their internal flaw and the moral failure that must change.'
   },
   {
     label: 'New Equilibrium',
     name: 'newEquilibrium',
-    tooltip: 'The new state of the hero and the world after the story ends—showing the effects of the hero’s change.'
+    tooltip: 'The new state of the world and the hero—reflects whether the journey led to growth or failure.'
   },
   {
     label: 'Values',
     name: 'herovalues',
-    tooltip: 'The positive and negative values at play in the story, which define its moral landscape.'
+    tooltip: 'The beliefs and values that define the hero’s identity and moral stance in the story (e.g. love, truth, friendship).'
   },
   {
     label: 'Variation on Moral Problem',
     name: 'variationOnProblem1',
-    tooltip: 'A subplot or character that explores a different angle of the story’s central moral problem.'
+    tooltip: 'The hero’s unique expression of the story’s central moral issue, shaped by their values and actions.'
   }
 ];
 
@@ -121,7 +121,7 @@ export const CHARACTER_FIELDS = [
   {
     label: 'Psychological Need',
     name: 'psychNeed',
-    tooltip: 'What the hero must fix within themselves to become emotionally whole—often unknown to them at the start.'
+    tooltip: 'What the hero must confront within themselves to grow—typically related to fear, self-worth, or identity.'
   },
   {
     label: 'Moral Need',
@@ -136,12 +136,12 @@ export const CHARACTER_FIELDS = [
   {
     label: 'Desire',
     name: 'desire',
-    tooltip: 'The specific goal or outcome the hero consciously wants to achieve—drives the surface plot.'
+    tooltip: 'The goal or object the hero wants; it creates the story spine and propels the plot.'
   },
   {
     label: 'Plan',
     name: 'plan',
-    tooltip: 'The strategy the hero develops to achieve their desire, which evolves with the story.'
+    tooltip: 'The strategy the hero develops to overcome the opponent and achieve their desire, which usually evolves with the story.'
   },
   {
     label: 'Hero\'s Values',
@@ -151,23 +151,23 @@ export const CHARACTER_FIELDS = [
   {
     label: 'Hero\'s Variation on Moral Problem',
     name: 'variationOnProblem1',
-    tooltip: 'An alternate form of the central moral issue, explored through the hero’s specific ethical struggle.'
+    tooltip: 'The hero’s unique expression of the story’s central moral issue, shaped by their values and actions.'
   },
 
   {
     label: 'Opponent 1',
     name: 'opponent1',
-    tooltip: 'The primary character who opposes the hero and creates the central conflict.'
+    tooltip: 'The primary character who stands in the way of the hero’s desire and often represents the opposite values.'
   },
   {
     label: 'Weakness',
     name: 'opponent1Weakness',
-    tooltip: 'The flaw in the opponent that makes them human, and which may mirror or contrast with the hero’s weakness.'
+    tooltip: 'The flaw in the opponent, which may mirror or contrast with the hero’s weakness.'
   },
   {
     label: 'Psych Need',
     name: 'opponent1PsychNeed',
-    tooltip: 'The internal emotional flaw or gap that drives the opponent’s actions.'
+    tooltip: 'The internal emotional flaw or false beleif that drives the opponent’s actions.'
   },
   {
     label: 'Moral need',
@@ -177,12 +177,12 @@ export const CHARACTER_FIELDS = [
   {
     label: 'Problem',
     name: 'opponent1Problem',
-    tooltip: 'The situation or issue that motivates the opponent’s pursuit of their own desire.'
+    tooltip: 'The external challenge or crisis that is causing pain for the opponent at the beginning of the story.'
   },
   {
     label: 'Desire',
     name: 'opponent1Desire',
-    tooltip: 'What the opponent wants to achieve, often directly conflicting with the hero’s goal.'
+    tooltip: 'What the opponent wants to achieve, often directly conflicting with the hero’s goal. In well-constructed stories, the hero and opponent actually have the same goal.'
   },
   {
     label: 'Plan',
@@ -202,48 +202,48 @@ export const CHARACTER_FIELDS = [
   {
     label: 'Opponent 1\'s Variation on problem',
     name: 'variationOnProblem2',
-    tooltip: 'A different perspective on the story’s central moral issue, embodied by the opponent.'
+    tooltip: 'A different expression of the moral problem as seen through the primary opponent’s perspective.'
   },
 
   {
     label: 'Opponent 2',
     name: 'opponent2',
-    tooltip: 'A secondary antagonist who adds complexity and layers to the central conflict.'
+    tooltip: 'The primary character who stands in the way of the hero’s desire and often represents the opposite values.'
   },
   {
     label: 'Weakness',
     name: 'opponent2Weakness',
-    tooltip: 'A flaw or vulnerability in this opponent that makes them more human and believable.'
+    tooltip: 'The flaw in the opponent, which may mirror or contrast with the hero’s weakness.'
   },
   {
     label: 'Psych Need',
     name: 'opponent2PsychNeed',
-    tooltip: 'This opponent’s emotional gap or internal flaw that influences their role in the conflict.'
+    tooltip: 'The internal emotional flaw or false beleif that drives the opponent’s actions.'
   },
   {
     label: 'Moral need',
     name: 'opponent2MoralNeed',
-    tooltip: 'The ethical blind spot of this character, showing how they treat others wrongly.'
+    tooltip: 'The opponent’s ethical shortcomings or blind spots that cause harm to others.'
   },
   {
     label: 'Problem',
     name: 'opponent2Problem',
-    tooltip: 'The situation that motivates this opponent’s involvement in the story.'
+    tooltip: 'The external challenge or crisis that is causing pain for the opponent at the beginning of the story.'
   },
   {
     label: 'Desire',
     name: 'opponent2Desire',
-    tooltip: 'What this opponent seeks to gain—may compete with the hero or another character.'
+    tooltip: 'What the opponent wants to achieve, often directly conflicting with the hero’s goal. In well-constructed stories, the hero and opponent actually have the same goal.'
   },
   {
     label: 'Plan',
     name: 'opponent2Plan',
-    tooltip: 'The method this opponent uses to pursue their goal—adds pressure and stakes.'
+    tooltip: 'How the opponent intends to get what they want—provides the basis for dramatic conflict.'
   },
   {
     label: 'Opponent 2\'s Values',
     name: 'opponent2Values',
-    tooltip: 'The guiding beliefs that define this character’s motivations and decisions.'
+    tooltip: 'The beliefs and priorities that justify the opponent’s actions—often in direct opposition to the hero’s values.'
   },
   {
     label: 'Opponent 2\'s Power',
@@ -252,49 +252,51 @@ export const CHARACTER_FIELDS = [
   },
   {
     label: 'Opponent 2\'s Variation on problem',
-    name: 'variationOnProblem3',
-    tooltip: 'A third angle on the central moral issue—presents alternative consequences or questions.'
+    name: 'variationOnProblem2',
+    tooltip: 'A different expression or answer to the story\'s central moral problem, as seen through the opponent’s perspective.'
   },
 
-  {
+
+
+    {
     label: 'Opponent 3',
     name: 'opponent3',
-    tooltip: 'An additional antagonist or opposing force, expanding the story’s thematic conflict.'
+    tooltip: 'The primary character who stands in the way of the hero’s desire and often represents the opposite values.'
   },
   {
     label: 'Weakness',
     name: 'opponent3Weakness',
-    tooltip: 'This opponent’s personal flaw or limitation—adds depth and dimension.'
+    tooltip: 'The flaw in the opponent, which may mirror or contrast with the hero’s weakness.'
   },
   {
     label: 'Psych Need',
     name: 'opponent3PsychNeed',
-    tooltip: 'Their internal lack or flaw that may parallel the hero’s own journey.'
+    tooltip: 'The internal emotional flaw or false beleif that drives the opponent’s actions.'
   },
   {
     label: 'Moral need',
     name: 'opponent3MoralNeed',
-    tooltip: 'Their ethical failure that adds to the story’s overall moral complexity.'
+    tooltip: 'The opponent’s ethical shortcomings or blind spots that cause harm to others.'
   },
   {
     label: 'Problem',
     name: 'opponent3Problem',
-    tooltip: 'Their conflict or issue that draws them into the main story arc.'
+    tooltip: 'The external challenge or crisis that is causing pain for the opponent at the beginning of the story.'
   },
   {
     label: 'Desire',
     name: 'opponent3Desire',
-    tooltip: 'Their goal—adds narrative tension and contrasts with the hero’s aim.'
+    tooltip: 'What the opponent wants to achieve, often directly conflicting with the hero’s goal. In well-constructed stories, the hero and opponent actually have the same goal.'
   },
   {
     label: 'Plan',
     name: 'opponent3Plan',
-    tooltip: 'How this opponent intends to achieve their objective—contributes to subplot complexity.'
+    tooltip: 'How the opponent intends to get what they want—provides the basis for dramatic conflict.'
   },
   {
     label: 'Opponent 3\'s Values',
     name: 'opponent3Values',
-    tooltip: 'Their value system—further defines the story’s theme by offering yet another viewpoint.'
+    tooltip: 'The beliefs and priorities that justify the opponent’s actions—often in direct opposition to the hero’s values.'
   },
   {
     label: 'Opponent 3\'s Power',
@@ -303,24 +305,26 @@ export const CHARACTER_FIELDS = [
   },
   {
     label: 'Opponent 3\'s Variation on problem',
-    name: 'variationOnProblem4',
-    tooltip: 'A fourth variation on the story’s core moral question—expands the narrative’s philosophical scope.'
+    name: 'variationOnProblem3',
+    tooltip: 'A different expression or answer to the story\'s central moral problem, as seen through the opponent’s perspective.'
   },
+
+  
 
   {
     label: 'Changed beliefs in hero',
     name: 'changedBeliefsInHero',
-    tooltip: 'How the hero’s values and beliefs are transformed by the end—proves inner growth and resolution.'
+    tooltip: 'How the hero’s values and beliefs are transformed by the end.'
   },
   {
     label: 'Opponents attacking hero’s weakness',
     name: 'opponentsAttackHeroWeakness',
-    tooltip: 'How the antagonists pressure the hero by exploiting their inner flaw—catalyzes change.'
+    tooltip: 'How the antagonists pressure the hero by exploiting their inner flaw.'
   },
   {
     label: 'Double',
     name: 'double',
-    tooltip: 'A character who reflects the hero’s flaws or fears, highlighting what the hero must overcome.'
+    tooltip: 'At least the main opponent should reflect the hero’s weakness, highlighting what the hero must overcome.'
   },
 
   {
@@ -335,7 +339,7 @@ export const THEME_FIELDS = [
   {
     label: 'Designing Principle',
     name: 'designingPrinciple',
-    tooltip: 'The deep structural pattern that expresses the story’s thematic message through its unique plot logic.'
+    tooltip: 'The deep structural idea that organizes the story; the unique way you tell this particular premise.'
   },
   {
     label: 'Theme line',
@@ -348,8 +352,8 @@ export const THEME_FIELDS = [
     tooltip: 'The pivotal decision the hero must make that reveals their ethical growth or failure.'
   },
   {
-    label: 'Moral problem',
-    name: 'moralProblem',
+    label: 'Central Moral problem',
+    name: 'centralMoralProblem',
     tooltip: 'The central ethical dilemma the story explores—often rooted in how the hero treats others.'
   },
   {
@@ -360,22 +364,22 @@ export const THEME_FIELDS = [
   {
     label: 'Opponent 1 Variation on Problem',
     name: 'variationOnProblem2',
-    tooltip: 'A different expression of the moral problem as seen through the primary opponent’s perspective.'
+    tooltip: 'A different expression or answer to the story\'s central moral problem, as seen through the opponent’s perspective.'
   },
   {
     label: 'Opponent 2 Variation on Problem',
     name: 'variationOnProblem3',
-    tooltip: 'Another moral viewpoint offered through a secondary opponent’s actions or beliefs.'
+    tooltip: 'A different expression or answer to the story\'s central moral problem, as seen through the opponent’s perspective.'
   },
   {
     label: 'Opponent 3 Variation on Problem',
     name: 'variationOnProblem4',
-    tooltip: 'A third moral variation that adds thematic depth and contrast to the story’s central issue.'
+    tooltip: 'A different expression or answer to the story\'s central moral problem, as seen through the opponent’s perspective.'
   },
   {
     label: 'Values in conflict',
     name: 'valuesInConflict',
-    tooltip: 'The opposing values or beliefs clashing in the story, often personified by different characters.'
+    tooltip: 'The opposing values or beliefs clashing in the story, personified by different characters. Creates a \"four corner\" opposition to give the story moral depth.'
   },
   {
     label: 'Moral Argument',
@@ -395,17 +399,17 @@ export const THEME_FIELDS = [
   {
     label: 'Moral need',
     name: 'moralNeed',
-    tooltip: 'What the hero must learn ethically to grow as a person and fulfill their arc.'
+    tooltip: 'The ethical shortcoming in how the hero treats others, requiring change for true growth.'
   },
   {
     label: 'First immoral action',
     name: 'firstImmoralAction',
-    tooltip: 'The earliest unethical choice made by the hero, which sets up their need for change.'
+    tooltip: 'The earliest unethical choice made by the hero, which demonstrates their need for change.'
   },
   {
     label: 'Desire',
     name: 'desire',
-    tooltip: 'The conscious goal the hero pursues, often clashing with what they morally need.'
+    tooltip: 'The goal or object the hero wants; it creates the story spine and propels the plot. Often, the goal clashes with the hero\'s moral need'
   },
   {
     label: 'Drive',
@@ -430,7 +434,7 @@ export const THEME_FIELDS = [
   {
     label: 'Battle',
     name: 'battle',
-    tooltip: 'The final confrontation where the hero’s true values are tested through conflict.'
+    tooltip: 'The final conflict between hero and opponent where the hero’s values and growth are tested.'
   },
   {
     label: 'Moral Self Revelation',
@@ -518,7 +522,7 @@ export const VISUAL_FIELDS = [
   },
   {
     label: 'Desire',
-    name: 'desire',
+    name: 'desireVisuals',
     tooltip: 'Visual motifs that represent what the hero wants—can shift as their priorities evolve.'
   },
   {
@@ -538,7 +542,7 @@ export const VISUAL_FIELDS = [
   },
   {
     label: 'Battle',
-    name: 'battle',
+    name: 'battleVisuals',
     tooltip: 'The climactic confrontation—should be visually staged to reflect both external stakes and internal transformation.'
   },
   {
@@ -647,8 +651,8 @@ export const PLOT_FIELDS = [
   },
   {
     label: 'Moral need',
-    name: 'moralNeed1',
-    tooltip: 'The ethical shortcoming that prevents the hero from treating others properly.'
+    name: 'moralNeed',
+    tooltip: 'The ethical shortcoming in how the hero treats others, requiring change for true growth.'
   },
   {
     label: 'Desire',
@@ -679,13 +683,13 @@ export const PLOT_FIELDS = [
   },
   {
     label: 'Moral need',
-    name: 'moralNeed2',
-    tooltip: 'The need to improve how the hero relates to others ethically.'
+    name: 'moralNeed',
+    tooltip: 'The ethical shortcoming in how the hero treats others, requiring change for true growth.'
   },
   {
     label: 'Problem',
     name: 'problem',
-    tooltip: 'The central issue or disruption that forces the hero into action.'
+    tooltip: 'The external challenge or crisis that is causing pain for the hero at the beginning of the story.'
   },
 
   {
@@ -747,7 +751,7 @@ export const PLOT_FIELDS = [
   {
     label: '10. Plan',
     name: 'plan',
-    tooltip: 'The strategy the hero uses to pursue their goal—reveals intelligence and intent.'
+    tooltip: 'The strategy the hero develops to overcome the opponent and achieve their desire, which usually evolves with the story.'
   },
 
   {
@@ -851,7 +855,7 @@ export const PLOT_FIELDS = [
   {
     label: '19. Battle',
     name: 'battle',
-    tooltip: 'The climactic confrontation that tests the hero’s new values and strength.'
+    tooltip: 'The final conflict between hero and opponent where the hero’s values and growth are tested.'
   },
   {
     label: 'Visual',
@@ -878,7 +882,7 @@ export const PLOT_FIELDS = [
   {
     label: '21. Moral Decision',
     name: 'moralChoice',
-    tooltip: 'The final ethical action that proves whether the hero has truly changed.'
+    tooltip: 'The pivotal decision the hero must make that reveals their ethical growth or failure.'
   },
 
   {

@@ -27,19 +27,17 @@ export function FormTable({ items, formData, onChange }) {
                     <tr key={name} className="border-b  align-top">
                         <td className="w-40 pt-2 pr-2 border-r font-medium align-top relative">
                             <div className="flex items-start space-x-1">
-                                <label htmlFor={name} className="underline">{label}</label>
-                                {tooltip && (
-                                    <button
-                                        type="button"
-                                        onClick={() => toggleTooltip(name)}
-                                        className="text-xs bg-gray-100 rounded-full w-5 h-5 text-center cursor-pointer hover:bg-gray-300 flex items-center justify-center"
-                                        title="Click for more info"
-                                    >
-                                        ?
-                                    </button>
-                                )}
+                                <button
+                                    type="button"
+                                    onClick={() => toggleTooltip(name)}
+                                    title="Click for more info"
+                                    className='text-left'
+                                >
+                                    <label htmlFor={name} className="underline cursor-pointer">{label}</label>
+                                </button>
+                                
                             </div>
-                            {tooltip && openTooltip === name && (
+                            {openTooltip === name && (
                                 <div className="absolute top-8 left-0 z-20 bg-white text-gray-700 text-sm p-2 rounded-md shadow-lg w-64 border border-gray-300">
                                     {tooltip}
                                 </div>
