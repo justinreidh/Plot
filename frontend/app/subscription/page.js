@@ -40,7 +40,7 @@ export default function Checkout() {
             <div className="flex flex-col justify-center items-center h-[calc(100vh-100px)] text-xl">
                 {(subscription !== 'active') ? (
                     <div className="flex flex-col items-center justify-center border rounded text-center w-100 h-100 p-6">
-                        <h1 className="mb-4">One simple plan, made for a writer's budget:</h1>
+                        <h1 className="mb-4">One simple plan, made for a writer&#39;s budget:</h1>
                         <h1 className="text-4xl mb-4">$2.5/month, billed anually.</h1>
                         <h1 className="text-sm">Includes ALL features: Unlimited Projects, Story Forms, and Beat Boards</h1>
                         <h1 className="text-xs text-gray-600">+ continual feature updates</h1>

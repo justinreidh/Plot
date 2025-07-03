@@ -18,7 +18,7 @@ export default function Docs() {
             <NavBar />
             <div>
                 <div className="p-4">
-                    <div>Let's get writing, {user?.displayName || 'Guest User'}.</div>
+                    <div>Let&#39;s get writing, {user?.displayName || 'Guest User'}.</div>
                     <NewProjectButton user={user} />
                     <DocCards />
                 </div>
@@ -54,11 +54,11 @@ function DocCards() {
         };
 
         fetchDocuments();
-    }, [user]);
+    }, [user, subscription]);
 
     if (loading) return <p>Loading your projects...</p>;
 
-    if (!documents.length) return <p className='mt-6'>You don't have any projects yet.</p>;
+    if (!documents.length) return <p className='mt-6'>You don&#39;t have any projects yet.</p>;
 
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
