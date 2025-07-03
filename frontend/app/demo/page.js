@@ -1,5 +1,5 @@
 'use client'
-import { useEffect } from 'react'
+import { useEffect, Suspense } from 'react'
 import Link from 'next/link'
 import { doc, getDoc } from 'firebase/firestore'
 import { db } from "@/lib/firebase"
@@ -37,6 +37,7 @@ export default function Document() {
 
 
     return (
+        <Suspense fallback={<div>Loading...</div>}>
         <div className='w-full relative'>
             <button
                 onClick={() => setShowNav(prev => !prev)}
@@ -79,6 +80,7 @@ export default function Document() {
             </main>
             <div className='h-50'></div>
         </div>
+        </Suspense>
     );
 }
 
