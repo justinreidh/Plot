@@ -252,7 +252,7 @@ export const CHARACTER_FIELDS = [
   },
   {
     label: 'Opponent 2\'s Variation on problem',
-    name: 'variationOnProblem2',
+    name: 'variationOnProblem3',
     tooltip: 'A different expression or answer to the story\'s central moral problem, as seen through the opponent’s perspective.'
   },
 
@@ -305,7 +305,7 @@ export const CHARACTER_FIELDS = [
   },
   {
     label: 'Opponent 3\'s Variation on problem',
-    name: 'variationOnProblem3',
+    name: 'variationOnProblem4',
     tooltip: 'A different expression or answer to the story\'s central moral problem, as seen through the opponent’s perspective.'
   },
 
@@ -645,16 +645,6 @@ export const PLOT_FIELDS = [
     tooltip: 'The hero’s realization of both their internal flaw and the moral failure that must change.'
   },
   {
-    label: 'Need',
-    name: 'need1',
-    tooltip: 'The hero’s emotional deficiency that must be resolved for personal growth.'
-  },
-  {
-    label: 'Moral need',
-    name: 'moralNeed',
-    tooltip: 'The ethical shortcoming in how the hero treats others, requiring change for true growth.'
-  },
-  {
     label: 'Desire',
     name: 'desire1',
     tooltip: 'The hero’s initial conscious goal, which drives the surface story.'
@@ -678,7 +668,7 @@ export const PLOT_FIELDS = [
   },
   {
     label: 'Need',
-    name: 'need2',
+    name: 'need',
     tooltip: 'The emotional or psychological gap that defines the hero’s journey.'
   },
   {
