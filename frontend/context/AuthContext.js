@@ -29,7 +29,7 @@ export function AuthProvider({ children }) {
                 setSubscription(null)
             }
             } catch (error) {
-            console.error("Failed to fetch subscription:", error)
+            console.error("Failed to fetch subscription.")
             setSubscription(null)
             }
         } else {

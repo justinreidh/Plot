@@ -55,9 +55,8 @@ export default function Document() {
                 scenes,
                 title,
             }, { merge: true });
-            console.log("Saved!");
         } catch (err) {
-            console.error("Error saving:", err);
+            console.error("Error saving.");
         } finally {
             setSaving(false);
         }

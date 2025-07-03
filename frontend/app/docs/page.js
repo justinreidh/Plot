@@ -47,7 +47,7 @@ function DocCards() {
                 }));
                 setDocuments(docs);
             } catch (err) {
-                console.error('Error fetching projects:', err);
+                console.error('Error fetching projects.');
             } finally {
                 setLoading(false);
             }

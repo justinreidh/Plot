@@ -27,7 +27,7 @@ export default function Auth() {
                 setSubscription(subscriptionStatus)
                 
             } catch (err) {
-                console.error('Failed to check subscription:', err)
+                console.error('Failed to check subscription.')
                 router.push('/checkout')
             }
         }
