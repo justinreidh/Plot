@@ -20,7 +20,6 @@ export async function POST(req) {
 
         return NextResponse.json({ url: session.url })
     } catch (err) {
-        console.error('Error creating portal session:', err)
         return NextResponse.json({ error: 'Internal server error' }, { status: 500 })
     }
 }

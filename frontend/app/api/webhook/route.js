@@ -31,7 +31,6 @@ export async function POST(req) {
         const subscriptionId = session.subscription
         try {
             const subscription = await stripe.subscriptions.retrieve(subscriptionId)
-            console.log("Subscription info geted:", subscription)
             await adminDB.collection('users').doc(userId).set(
                 {
                 stripeCustomerId: customerId,
@@ -41,10 +40,8 @@ export async function POST(req) {
                 },
                 { merge: true }
             )
-
-            console.log(`Firestore updated for user ${userId}`)
         } catch (error) {
-            console.error('Failed to write to Firestore:', error)
+            console.error('Failed to save.')
         }
     }
 
@@ -62,8 +59,6 @@ export async function POST(req) {
             subscriptionStatus: 'canceled',
             subscriptionRenewal: null, 
             })
-
-            console.log(`Subscription canceled for user: ${userDoc.id}`)
         } else {
             console.warn(`No user found with customerId: ${customerId}`)
         }
@@ -81,8 +76,8 @@ export async function POST(req) {
 
             const isCancelled = subscription.cancel_at_period_end === true
             const renewal = subscription.current_period_end
-            ? subscription.current_period_end * 1000
-            : null
+                ? subscription.current_period_end * 1000
+                : null
 
             await userDoc.ref.update({
             subscriptionStatus: subscription.status,
@@ -90,7 +85,7 @@ export async function POST(req) {
             subscriptionRenewal: renewal,
             })
 
-            console.log(`Updated subscription status for ${userDoc.id}: ${subscription.status}`)
+            
         } else {
             console.warn(`No user found with customerId: ${customerId}`)
         }

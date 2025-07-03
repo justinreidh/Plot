@@ -25,9 +25,9 @@ export function SubscriptionInfo() {
         <div>
             <h1>Subscription status: {subscription}</h1>
             <h1>Subscription started on: {new Date(subscriptionRenewal).toLocaleDateString()}</h1>
-            {renew == true ? (<h1>Your subscription <strong>will</strong> renew at the end of this billing period.</h1>)
+            {renew == true ? (<h1>Your subscription <strong>will</strong> automatically renew at the end of this billing period.</h1>)
                 :
-                (<h1>Your subscription <strong>will not </strong>renew at the end of this billing period.</h1>)
+                (<h1>Your subscription <strong>will not </strong>automatically renew at the end of this billing period.</h1>)
             }
             <br/>
             <h1 className="text-gray-500">Need to manage your subscription? <button onClick={handleManage} className="text-blue-500 cursor-pointer">Click here.</button></h1>
