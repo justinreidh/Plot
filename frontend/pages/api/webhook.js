@@ -22,11 +22,13 @@ export default async function handler(req, res) {
     try {
         event = stripe.webhooks.constructEvent(buf, sig, endpointSecret)
     } catch (err) {
+        console.log('🧪 Incoming request to:', req.url)
         console.error('❌ Webhook signature verification failed.')
         console.error('Signature:', sig)
         console.error('Expected secret:', endpointSecret)
         console.error('Error message:', err.message)
-        return res.status(400).send(`Webhook Error: ${err.message}`)
+        console.log('🟢 Raw body received:', buf.toString())
+        return res.status(400).send(`Webhook Error 1234: ${err.message}`)
     }
 
     const type = event.type
