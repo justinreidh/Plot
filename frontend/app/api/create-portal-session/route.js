@@ -2,6 +2,8 @@ import { stripe } from '@/lib/stripe'
 import { adminDB } from '@/lib/firebase-admin'
 import { NextResponse } from 'next/server'
 
+export const runtime = 'nodejs';
+
 export async function POST(req) {
     try {
         const { userId } = await req.json()
