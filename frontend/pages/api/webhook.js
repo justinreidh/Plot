@@ -6,6 +6,7 @@ export const config = {
     api: {
         bodyParser: false,
     },
+    runtime: 'nodejs',
 }
 
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET
