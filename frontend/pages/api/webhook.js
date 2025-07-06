@@ -5,8 +5,10 @@ import { adminDB } from '@/lib/firebase-admin'
 export const config = {
     api: {
         bodyParser: false,
+        externalResolver: true,
     },
     runtime: 'nodejs',
+    regions: ['iad'],
 }
 
 const endpointSecret = process.env.STRIPE_WEBHOOK_SECRET
