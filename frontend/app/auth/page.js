@@ -59,16 +59,20 @@ export default function Auth() {
                         {subscription !== 'active' && (<div className='p-6 text-center'>You don&#39;t have an active subscription. <Link href={'/subscription'} className='font-semibold text-blue-500'>Start one </Link>to unlock the full power of Plot.</div>)}
                         <div className='mt-6 text-gray-400'>
                             {subscription == 'active' && (<SubscriptionInfo/>)}
-                            Need help? Contact support<br/><br/>
+                            Need help? <Link href={'/support'} className='text-blue-500'>Contact support</Link><br/><br/>
                             
                         </div>
                     </div>
                 ) : (
-                    <div className='flex flex-col items-center justify-center border rounded pb-20 w-100 h-100'>
+                    <div className='flex flex-col items-center justify-center border rounded pb-5 w-100 h-100'>
                         <h1 className='m-6 border-gray-300 border rounded p-2 text-4xl'>Log in to <span className='font-semibold'>Plot.</span></h1>
                         <button onClick={signInWithGoogle} className='cursor-pointer shadow-lg hover:shadow-sm'>
                             <Image src={'/sign.png'} width={200} height={100} alt='Google Icon'></Image>
                         </button>
+                        <div className='mt-6 text-gray-400'>
+                            Need help? <Link href={'/support'} className='text-blue-500'>Contact support</Link><br/><br/>
+                            
+                        </div>
                     </div>
                 )}
             </div>
